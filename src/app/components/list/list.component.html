@@ -1,27 +1,22 @@
 <div class="view-container d-flex flex-column">
-  <div class="header d-flex justify-content-around align-items-center">
-    <div>
-      <ng-template #rt
-                   let-r="result"
-                   let-t="term">
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']"
-             class="mr-1"
-             style="width: 16px">
-        <ngb-highlight [result]="r.name"
-                       [term]="t"></ngb-highlight>
-      </ng-template>
-
-      <!-- <input id="typeahead-template"
-             type="text"
-             class="form-control"
-             [(ngModel)]="model"
-             [ngbTypeahead]="search"
-             [resultTemplate]="rt"
-             [inputFormatter]="formatter" /> -->
+  <div class="header d-flex flex-column flex-md-row align-items-center">
+    <div class="col-md-6 d-flex align-items-center">
+      <div class="brand-logo justify-content-end">
+        <img [src]="getLogoURL(brandSelected)"
+             *ngIf="brandSelected">
+      </div>
       <input type="text"
-             placeholder="Search by brand name...">
+             class="form-control col-md-8"
+             [(ngModel)]="searchText"
+             [ngbTypeahead]="search"
+             placeholder="Search by brand name..."
+             (selectItem)="onBrandSelected($event)" />
+      <i class="material-icons noselect search-button"
+         (click)="clearSearch()"
+         placement="bottom"
+         ngbTooltip="Clear search result">clear</i>
     </div>
-    <div class="compare-container d-flex">
+    <div class="compare-container d-flex col-md-6 justify-content-center">
       <div class="select-to-compare-button noselect d-flex justify-content-center align-items-center"
            [class.clicked]="selectionMode"
            (click)="onSelectToCompareClicked()">Select to Compare</div>
@@ -36,7 +31,7 @@
     </div>
   </div>
   <div class="d-flex flex-wrap justify-content-around list-container">
-    <app-item *ngFor="let car of carList"
+    <app-item *ngFor="let car of carsPagedList"
               [car]="car"
               [selected]="isCarSelected(car.id)"
               [selectionMode]="selectionMode"
@@ -45,9 +40,10 @@
   <div class="pagination-container d-flex justify-content-center align-items-center"
        *ngIf="carList.length">
     <ngb-pagination class="d-flex justify-content-start"
-                    [collectionSize]="carList.length"
-                    [pageSize]="12"
-                    [(page)]="page"></ngb-pagination>
+                    [collectionSize]="collectionSize"
+                    [pageSize]="pageSize"
+                    [(page)]="page"
+                    (pageChange)="onPageChange($event)"></ngb-pagination>
   </div>
 </div>
 

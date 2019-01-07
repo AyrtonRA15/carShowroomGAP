@@ -2,8 +2,14 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
 body {
   background-color: white;
+  max-height: 100%;
 }
 
 .noselect {
@@ -25,7 +31,6 @@ body {
 .view-container {
   width: 100%;
   max-width: 1000px;
-  margin: 16px;
   position: relative;
   border-radius: 10px;
   background-color: #fafafa;
@@ -51,4 +56,39 @@ body {
 
 .pagination {
   margin: 16px 0 0;
+}
+
+.dropdown-item {
+  padding: 4px 16px;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: darkslategray;
+}
+
+.dropdown-item img {
+  margin-right: 8px;
+  width: 16px;
+}
+
+.form-control:focus {
+  border-color: darkslategray;
+  box-shadow: 0 0 0 0.2rem rgba(1, 131, 77, 0.25);
+}
+
+app-list {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: darkslategray;
+  border-color: darkslategray;
+}
+
+.page-link {
+  color: darkslategray;
 }

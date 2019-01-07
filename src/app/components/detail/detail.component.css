@@ -10,8 +10,9 @@
   right: 16px;
 }
 
-.close-icon img {
-  width: 24px;
+.close-icon i {
+  font-size: 28px;
+  color: gray;
   cursor: pointer;
   outline: none;
 }

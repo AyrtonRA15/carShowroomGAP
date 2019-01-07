@@ -10,6 +10,7 @@ import { CompareComponent } from './components/compare/compare.component';
 import { CarService } from './services/car.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './components/list/item/item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ItemComponent } from './components/list/item/item.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
   ],
   providers: [CarService],
   bootstrap: [AppComponent],

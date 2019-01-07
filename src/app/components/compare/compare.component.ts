@@ -19,9 +19,7 @@ export class CompareComponent implements OnInit {
 
   constructor(private _car: CarService) {}
 
-  ngOnInit() {
-    console.log(this.carsSelected);
-  }
+  ngOnInit() {}
 
   getCarPicURL(car: ICar) {
     return this._car.getPicURL(car.brand, car.model, false);

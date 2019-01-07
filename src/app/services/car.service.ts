@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICar } from '../interfaces/car.interface';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,31 +16,36 @@ export class CarService {
     return name.replace(' ', '-').toLowerCase();
   }
 
-  getPicURL(brand: string, model: string, mainPic: boolean = true) {
-    const picName = mainPic ? 'main' : 'sec';
-    return (
-      '/assets/images/' +
-      this.getFolderName(brand) +
-      '/' +
-      this.getFolderName(model) +
-      '/' +
-      picName +
-      '.jpg'
-    );
+  getPicURL(
+    brand: string,
+    model?: string,
+    mainPic: boolean = true,
+  ): string {
+    let picURL = '';
+    if (model) {
+      const picName = mainPic ? 'main' : 'sec';
+      picURL =
+        '/assets/images/' +
+        this.getFolderName(brand) +
+        '/' +
+        this.getFolderName(model) +
+        '/' +
+        picName +
+        '.jpg';
+    } else {
+      picURL =
+        '/assets/images/' + this.getFolderName(brand) + '/logo.png';
+    }
+    return picURL;
   }
 
   getCars(): Observable<ICar[]> {
     return this._http.get<ICar[]>(this.carsUrl);
   }
 
-  getCarById(id: string): Observable<ICar[]> {
-    // const options = id
-    //   ? { params: new HttpParams().set('id', id) }
-    //   : {};
-    // console.log(options);
-
-    const params = new HttpParams().set('id', id);
-
-    return this._http.get<ICar[]>(this.carsUrl, { params });
+  getCarById(id: number): Observable<ICar> {
+    return this.getCars().pipe(
+      map((cars) => cars.filter((car) => car.id === id)[0]),
+    );
   }
 }

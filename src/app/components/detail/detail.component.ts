@@ -18,15 +18,16 @@ export class DetailComponent implements OnInit {
     private _car: CarService,
   ) {
     this._route.paramMap.subscribe((params: ParamMap) => {
-      console.log(params.get('carId'));
-
-      this._car
-        .getCarById(params.get('carId'))
-        .subscribe((car: ICar[]) => {
-          console.log(car);
-          this.car = car[31];
-          this.getCarPictures();
-        });
+      if (params.get('carId')) {
+        this._car
+          .getCarById(Number(params.get('carId')))
+          .subscribe((car: ICar) => {
+            if (car) {
+              this.car = car;
+              this.getCarPictures();
+            }
+          });
+      }
     });
   }
 

@@ -1,6 +1,22 @@
+.view-container {
+  max-height: calc(100vh - 32px);
+}
+
 .header {
   height: 80px;
+  min-height: 80px;
   margin-bottom: 16px;
+}
+
+.search-button {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 28px;
+  color: gray;
+}
+
+.pagination-container {
+  min-height: 54px;
 }
 
 .compare-container {
@@ -25,8 +41,8 @@
 
 .compare-button {
   height: 40px;
-  position: absolute;
-  left: 190px;
+  /* position: absolute; */
+  /* left: 190px; */
   padding-left: 16px;
   cursor: pointer;
 }
@@ -36,7 +52,7 @@
 }
 
 .list-container {
-  max-height: calc(100vh - 214px);
+  /* max-height: calc(100vh - 214px); */
   overflow: auto;
 }
 
@@ -48,4 +64,9 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.54);
   z-index: 100;
+}
+
+.brand-logo img {
+  width: 40px;
+  padding-right: 16px;
 }
