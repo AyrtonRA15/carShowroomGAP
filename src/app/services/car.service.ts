@@ -31,10 +31,10 @@ export class CarService {
         this.getFolderName(model) +
         '/' +
         picName +
-        '.JPG';
+        '.jpg';
     } else {
       picURL =
-        '/assets/images/' + this.getFolderName(brand) + '/logo.PNG';
+        '/assets/images/' + this.getFolderName(brand) + '/logo.png';
     }
     return picURL;
   }
