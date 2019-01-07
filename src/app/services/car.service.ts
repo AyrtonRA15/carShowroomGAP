@@ -25,7 +25,7 @@ export class CarService {
     if (model) {
       const picName = mainPic ? 'main' : 'sec';
       picURL =
-        '/assets/images/' +
+        './assets/images/' +
         this.getFolderName(brand) +
         '/' +
         this.getFolderName(model) +
@@ -34,7 +34,7 @@ export class CarService {
         '.jpg';
     } else {
       picURL =
-        '/assets/images/' + this.getFolderName(brand) + '/logo.png';
+        './assets/images/' + this.getFolderName(brand) + '/logo.png';
     }
     return picURL;
   }
