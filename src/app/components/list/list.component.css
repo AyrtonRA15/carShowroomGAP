@@ -68,7 +68,7 @@
 }
 
 .list-container {
-  /* max-height: calc(100vh - 214px); */
+  max-height: calc(100vh - 214px);
   overflow: auto;
 }
 
