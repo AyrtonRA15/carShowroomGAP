@@ -5,9 +5,7 @@
 }
 
 .close-icon {
-  position: absolute;
-  top: 0;
-  right: -32px;
+  margin-left: 8px;
   outline: none;
 }
 
@@ -55,4 +53,33 @@
   max-width: 200px;
   padding: 0 16px;
   color: cadetblue;
+}
+
+@media only screen and (max-width: 768px) {
+  .comparison-content {
+    max-width: calc(100vw - 64px);
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+  }
+
+  .close-icon i {
+    font-size: 24px;
+  }
+
+  .car-picture img {
+    width: 150px;
+  }
+
+  .detail-titles {
+    width: 120px;
+  }
+
+  .detail-values {
+    min-width: 150px;
+  }
+
+  .detail-item {
+    height: 30px;
+    font-size: 14px;
+  }
 }

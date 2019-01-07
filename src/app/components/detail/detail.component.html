@@ -5,17 +5,17 @@
       <ng-template ngbSlide>
         <img [src]="pics[0]"
              [alt]="car.model + ' main picture'">
-        <div class="carousel-caption">
+        <div class="carousel-caption d-flex flex-md-column justify-content-center align-items-center">
           <h3>{{ car.brand }} {{ car.model }}</h3>
-          <span>{{ car.year }}</span>
+          <span class="mr-left">{{ car.year }}</span>
         </div>
       </ng-template>
       <ng-template ngbSlide>
         <img [src]="pics[1]"
              [alt]="car.model + ' secondary picture'">
-        <div class="carousel-caption">
+        <div class="carousel-caption d-flex flex-md-column justify-content-center align-items-center">
           <span>Price</span>
-          <h3>{{ car.price | currency:'USD' }}</h3>
+          <h3 class="mr-left">{{ car.price | currency:'USD' }}</h3>
         </div>
       </ng-template>
     </ngb-carousel>
@@ -30,7 +30,7 @@
       <div class="detail-item d-flex align-items-center justify-content-end">Engine</div>
       <div class="detail-item d-flex align-items-center justify-content-end">Horsepower</div>
       <div class="detail-item d-flex align-items-center justify-content-end">Torque</div>
-      <div class="detail-item d-flex align-items-center justify-content-end">0-60mph / 0-100kmh</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">0-100kmh</div>
       <div class="detail-item d-flex align-items-center justify-content-end">Payload</div>
       <div class="detail-item d-flex align-items-center justify-content-end">Fuel Tank</div>
     </div>

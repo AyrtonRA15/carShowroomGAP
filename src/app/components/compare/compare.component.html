@@ -1,31 +1,33 @@
-<div class="comparison-content d-flex">
-  <div class="detail-titles">
-    <div class="detail-item d-flex align-items-center justify-content-end">Name</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Year</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Price</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Engine</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Horsepower</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Torque</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">0-100kmh</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Payload</div>
-    <div class="detail-item d-flex align-items-center justify-content-end">Fuel Tank</div>
-  </div>
-  <div *ngFor="let car of carsSelected; let i = index"
-       class="car-detail d-flex flex-column">
-    <div class="car-picture">
-      <img [src]="getCarPicURL(car)"
-           [alt]="car.model + ' picture'">
+<div class="d-flex">
+  <div class="comparison-content d-flex">
+    <div class="detail-titles">
+      <div class="detail-item d-flex align-items-center justify-content-end">Name</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Year</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Price</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Engine</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Horsepower</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Torque</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">0-100kmh</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Payload</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Fuel Tank</div>
     </div>
-    <div class="detail-values">
-      <div class="detail-item d-flex align-items-center">{{ car.brand }} {{ car.model }}</div>
-      <div class="detail-item d-flex align-items-center">{{ car.year }}</div>
-      <div class="detail-item d-flex align-items-center">{{ car.price | currency:'USD' }}</div>
-      <div class="detail-item d-flex align-items-center">{{ car.detail.engine }}</div>
-      <div class="detail-item d-flex align-items-center">{{ car.detail.horsepower }} Hp</div>
-      <div class="detail-item d-flex align-items-center">{{ car.detail.torque }} Lb-Ft.</div>
-      <div class="detail-item d-flex align-items-center">{{ car.detail.acceleration }} Seconds</div>
-      <div class="detail-item d-flex align-items-center">{{ car.detail.payload }} Lbs.</div>
-      <div class="detail-item d-flex align-items-center">{{ car.detail.fuelTank }} Gal.</div>
+    <div *ngFor="let car of carsSelected; let i = index"
+         class="car-detail d-flex flex-column">
+      <div class="car-picture">
+        <img [src]="getCarPicURL(car)"
+             [alt]="car.model + ' picture'">
+      </div>
+      <div class="detail-values">
+        <div class="detail-item d-flex align-items-center">{{ car.brand }} {{ car.model }}</div>
+        <div class="detail-item d-flex align-items-center">{{ car.year }}</div>
+        <div class="detail-item d-flex align-items-center">{{ car.price | currency:'USD' }}</div>
+        <div class="detail-item d-flex align-items-center">{{ car.detail.engine }}</div>
+        <div class="detail-item d-flex align-items-center">{{ car.detail.horsepower }} Hp</div>
+        <div class="detail-item d-flex align-items-center">{{ car.detail.torque }} Lb-Ft.</div>
+        <div class="detail-item d-flex align-items-center">{{ car.detail.acceleration }} Seconds</div>
+        <div class="detail-item d-flex align-items-center">{{ car.detail.payload }} Lbs.</div>
+        <div class="detail-item d-flex align-items-center">{{ car.detail.fuelTank }} Gal.</div>
+      </div>
     </div>
   </div>
   <div class="close-icon noselect"
