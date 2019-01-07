@@ -1,5 +1,5 @@
 <div class="view-container d-flex flex-column">
-  <div class="header">
+  <div class="header d-flex justify-content-around align-items-center">
     <div>
       <ng-template #rt
                    let-r="result"
@@ -18,13 +18,26 @@
              [ngbTypeahead]="search"
              [resultTemplate]="rt"
              [inputFormatter]="formatter" /> -->
+      <input type="text"
+             placeholder="Search by brand name...">
     </div>
-    <input type="text"
-           placeholder="Search by brand name...">
+    <div class="compare-container d-flex">
+      <div class="select-to-compare-button noselect d-flex justify-content-center align-items-center"
+           [class.clicked]="selectionMode"
+           (click)="onSelectToCompareClicked()">Select to Compare</div>
+      <div *ngIf="selectionMode && carsToCompare.length > 0"
+           class="compare-button"
+           (click)="onCompareClicked()">
+        OK
+      </div>
+    </div>
   </div>
   <div class="d-flex flex-wrap justify-content-around list-container">
     <app-item *ngFor="let car of carList"
-              [car]="car"></app-item>
+              [car]="car"
+              [selected]="isCarSelected(car.id)"
+              [selectionMode]="selectionMode"
+              (itemClicked)="onItemClicked($event)"></app-item>
   </div>
   <div class="pagination-container d-flex justify-content-center align-items-center"
        *ngIf="carList.length">
@@ -33,4 +46,13 @@
                     [pageSize]="12"
                     [(page)]="page"></ngb-pagination>
   </div>
+</div>
+
+<div *ngIf="compareMode"
+     class="comparison-container">
+  <div class="close-comparison-icon"
+       (click)="onCloseCompare()">
+    X
+  </div>
+  <app-compare></app-compare>
 </div>

@@ -2,7 +2,44 @@
   height: 80px;
 }
 
+.compare-container {
+  position: relative;
+}
+
+.select-to-compare-button {
+  width: 190px;
+  height: 40px;
+  padding: 8px 24px;
+  cursor: pointer;
+  background-color: darkslategray;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.select-to-compare-button.clicked {
+  background-color: slategray;
+}
+
+.compare-button {
+  height: 40px;
+  position: absolute;
+  left: 190px;
+  padding-left: 16px;
+}
+
 .list-container {
   max-height: calc(100vh - 198px);
   overflow: auto;
+}
+
+.comparison-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.54);
+  z-index: 100;
 }

@@ -8,19 +8,19 @@
   outline: none;
 }
 
-.item-container:hover .picture-container,
-.item-container:active .picture-container {
+.hover.item-container:hover .picture-container,
+.hover.item-container:active .picture-container {
   width: 190px;
   height: 160px;
 }
 
-.item-container:hover .picture-container img,
-.item-container:active .picture-container img {
+.hover.item-container:hover .picture-container img,
+.hover.item-container:active .picture-container img {
   width: 160px;
 }
 
-.item-container:hover .year,
-.item-container:active .year {
+.hover.item-container:hover .year,
+.hover.item-container:active .year {
   font-size: 18px;
 }
 
@@ -43,6 +43,16 @@
 .picture-container img {
   width: 150px;
   border-radius: 30%;
+}
+
+.checkbox-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.checkbox-container img {
+  width: 28px;
 }
 
 .title {

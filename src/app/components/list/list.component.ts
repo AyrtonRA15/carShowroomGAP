@@ -12,24 +12,71 @@ import { debounceTime, map } from 'rxjs/operators';
 export class ListComponent implements OnInit {
   carList: ICar[] = [];
   brandList: IBrand[] = [];
+  carsToCompare: number[] = [];
   page = 0;
   pageSize = 12;
   pagedCarList: ICar[] = [];
+  selectionMode = false;
+  compareMode = false;
 
   constructor(private _car: CarService) {}
 
   ngOnInit() {
     this._car.getCars().subscribe((carList: ICar[]) => {
       this.carList = carList;
+      this.carList.sort((car1: ICar, car2: ICar) => {
+        // Sort by brand name first
+        if (car1.brand > car2.brand) {
+          return 1;
+        } else if (car1.brand < car2.brand) {
+          return -1;
+        }
 
-      const uniq = [
-        ...new Set(carList.map((car: ICar) => car.brand)),
-      ];
+        // Sort by model name second
+        if (car1.model < car2.model) {
+          return -1;
+        } else if (car1.model > car2.model) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
 
-      console.log(uniq);
+      // const uniq = [
+      //   ...new Set(carList.map((car: ICar) => car.brand)),
+      // ];
 
-      console.log(this.carList);
+      // console.log(uniq);
+
+      // console.log(this.carList);
     });
+  }
+
+  onSelectToCompareClicked() {
+    this.selectionMode = !this.selectionMode;
+    this.carsToCompare = [];
+  }
+
+  onCompareClicked() {
+    this.compareMode = true;
+  }
+
+  onCloseCompare() {
+    this.compareMode = false;
+    this.selectionMode = false;
+    this.carsToCompare = [];
+  }
+
+  isCarSelected(id: number): boolean {
+    return this.carsToCompare.includes(id);
+  }
+
+  onItemClicked(carId: number) {
+    if (!this.isCarSelected(carId) && this.carsToCompare.length < 3) {
+      this.carsToCompare.push(carId);
+    } else if (this.isCarSelected(carId)) {
+      this.carsToCompare.splice(this.carsToCompare.indexOf(carId), 1);
+    }
   }
 
   getPagedList(): ICar[] {
