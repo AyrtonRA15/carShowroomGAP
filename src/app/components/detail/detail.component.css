@@ -1,3 +1,7 @@
+.view-container {
+  /* max-width: calc(100% - 32px); */
+}
+
 .pictures-container {
   background-color: white;
   border-top-left-radius: 10px;
@@ -40,7 +44,7 @@ img {
 }
 
 .detail-container {
-  padding: 16px 0;
+  padding: 16px 16px;
   background-color: slategray;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -75,4 +79,19 @@ img {
 .detail-values .detail-item {
   padding: 0 16px;
   color: cadetblue;
+}
+
+@media only screen and (max-width: 768px) {
+  .detail-item {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .detail-titles {
+    width: 170px;
+  }
+
+  .detail-values {
+    min-width: 140px;
+  }
 }

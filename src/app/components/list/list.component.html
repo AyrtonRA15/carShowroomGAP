@@ -21,7 +21,7 @@
            [class.clicked]="selectionMode"
            (click)="onSelectToCompareClicked()">Select to Compare</div>
       <div *ngIf="selectionMode && carsToCompare.length > 1"
-           class="compare-button noselect"
+           class="compare-button noselect d-flex align-items-center"
            (click)="onCompareClicked()"
            placement="top"
            ngbTooltip="Compare cars">

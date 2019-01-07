@@ -8,17 +8,6 @@
   margin-bottom: 16px;
 }
 
-.search-button {
-  cursor: pointer;
-  margin-left: 8px;
-  font-size: 28px;
-  color: gray;
-}
-
-.pagination-container {
-  min-height: 54px;
-}
-
 .compare-container {
   position: relative;
 }
@@ -49,6 +38,33 @@
 
 .compare-button img {
   width: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    height: 96px;
+    min-height: 96px;
+  }
+
+  .compare-container {
+    margin-top: 16px;
+    padding-right: 0;
+  }
+
+  .compare-button img {
+    width: 32px;
+  }
+}
+
+.search-button {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 28px;
+  color: gray;
+}
+
+.pagination-container {
+  min-height: 54px;
 }
 
 .list-container {
