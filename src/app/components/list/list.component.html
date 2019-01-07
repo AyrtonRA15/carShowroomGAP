@@ -25,10 +25,13 @@
       <div class="select-to-compare-button noselect d-flex justify-content-center align-items-center"
            [class.clicked]="selectionMode"
            (click)="onSelectToCompareClicked()">Select to Compare</div>
-      <div *ngIf="selectionMode && carsToCompare.length > 0"
-           class="compare-button"
-           (click)="onCompareClicked()">
-        OK
+      <div *ngIf="selectionMode && carsToCompare.length > 1"
+           class="compare-button noselect"
+           (click)="onCompareClicked()"
+           placement="top"
+           ngbTooltip="Compare cars">
+        <img src="/assets/images/compare_icon.png"
+             alt="Compare Icon">
       </div>
     </div>
   </div>
@@ -49,10 +52,7 @@
 </div>
 
 <div *ngIf="compareMode"
-     class="comparison-container">
-  <div class="close-comparison-icon"
-       (click)="onCloseCompare()">
-    X
-  </div>
-  <app-compare></app-compare>
+     class="comparison-container d-flex justify-content-center align-items-center">
+  <app-compare [carsSelected]="carsSelected"
+               (close)="onCloseCompare()"></app-compare>
 </div>

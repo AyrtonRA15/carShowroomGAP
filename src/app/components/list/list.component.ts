@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
   carList: ICar[] = [];
   brandList: IBrand[] = [];
   carsToCompare: number[] = [];
+  carsSelected: ICar[] = [];
   page = 0;
   pageSize = 12;
   pagedCarList: ICar[] = [];
@@ -24,6 +25,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this._car.getCars().subscribe((carList: ICar[]) => {
       this.carList = carList;
+
       this.carList.sort((car1: ICar, car2: ICar) => {
         // Sort by brand name first
         if (car1.brand > car2.brand) {
@@ -42,6 +44,10 @@ export class ListComponent implements OnInit {
         }
       });
 
+      // this.carList.map((car: ICar) => {
+      //   if (car.brand)
+      // })
+
       // const uniq = [
       //   ...new Set(carList.map((car: ICar) => car.brand)),
       // ];
@@ -59,6 +65,9 @@ export class ListComponent implements OnInit {
 
   onCompareClicked() {
     this.compareMode = true;
+    this.carsSelected = this.carList.filter((car: ICar) =>
+      this.isCarSelected(car.id),
+    );
   }
 
   onCloseCompare() {

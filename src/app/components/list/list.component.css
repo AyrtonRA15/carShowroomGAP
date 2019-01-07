@@ -1,5 +1,6 @@
 .header {
   height: 80px;
+  margin-bottom: 16px;
 }
 
 .compare-container {
@@ -27,10 +28,15 @@
   position: absolute;
   left: 190px;
   padding-left: 16px;
+  cursor: pointer;
+}
+
+.compare-button img {
+  width: 40px;
 }
 
 .list-container {
-  max-height: calc(100vh - 198px);
+  max-height: calc(100vh - 214px);
   overflow: auto;
 }
 

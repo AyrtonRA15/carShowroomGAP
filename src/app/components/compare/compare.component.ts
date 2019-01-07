@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import { ICar } from 'src/app/interfaces/car.interface';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
-  styleUrls: ['./compare.component.css']
+  styleUrls: ['./compare.component.css'],
 })
 export class CompareComponent implements OnInit {
+  @Input() carsSelected: ICar[];
+  @Output() close = new EventEmitter();
 
-  constructor() { }
+  constructor(private _car: CarService) {}
 
   ngOnInit() {
+    console.log(this.carsSelected);
   }
 
+  getCarPicURL(car: ICar) {
+    return this._car.getPicURL(car.brand, car.model, false);
+  }
+
+  closeCompare() {
+    this.close.emit();
+  }
 }
