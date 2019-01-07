@@ -3,7 +3,36 @@
 }
 
 body {
-  /* margin: 0; */
-  /* height: 100vh; */
-  background-color: lightgray;
+  background-color: white;
+}
+
+.view-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 16px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+  display: block;
+  position: relative;
+  padding: 16px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  cursor: pointer;
+}
+
+.carousel-control-prev-icon {
+  background-image: url('assets/images/prev_icon.png')
+}
+
+.carousel-control-next-icon {
+  background-image: url('assets/images/next_icon.png')
+}
+
+.pagination {
+  margin: 16px 0 0;
 }

@@ -1,0 +1,67 @@
+.item-container {
+  height: 246px;
+  position: relative;
+  padding: 12px;
+  margin-bottom: 16px;
+  max-width: 204px;
+  cursor: pointer;
+  outline: none;
+}
+
+.item-container:hover .picture-container,
+.item-container:active .picture-container {
+  width: 190px;
+  height: 160px;
+}
+
+.item-container:hover .picture-container img,
+.item-container:active .picture-container img {
+  width: 160px;
+}
+
+.item-container:hover .year,
+.item-container:active .year {
+  font-size: 18px;
+}
+
+.year {
+  position: absolute;
+  top: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  color: gray;
+}
+
+.picture-container {
+  width: 180px;
+  height: 150px;
+  border: solid 5px black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.picture-container img {
+  width: 150px;
+  border-radius: 30%;
+}
+
+.title {
+  margin-top: 8px;
+}
+
+.title .brand {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.title .model {
+  font-size: 15px;
+  margin-left: 4px;
+  color: gray;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: darkcyan;
+}

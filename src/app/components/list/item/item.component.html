@@ -1,3 +1,15 @@
-<p>
-  {{ car.model }}
-</p>
+<div class="item-container"
+     [routerLink]="'/detail/' + car.id">
+  <span class="year">{{ car.year }}</span>
+  <div class="picture-container d-flex align-items-center justify-content-center">
+    <img [src]="getPicURL()"
+         [alt]="car.model + ' main picture'">
+  </div>
+  <div class="title d-flex justify-content-center">
+    <span class="brand">{{ car.brand }}</span>
+    <span class="model">{{ car.model }}</span>
+  </div>
+  <div class="price d-flex justify-content-center">
+    {{ car.price | currency:'USD' }}
+  </div>
+</div>

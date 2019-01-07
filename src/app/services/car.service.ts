@@ -11,6 +11,23 @@ export class CarService {
 
   constructor(private _http: HttpClient) {}
 
+  private getFolderName(name: string) {
+    return name.replace(' ', '-').toLowerCase();
+  }
+
+  getPicURL(brand: string, model: string, mainPic: boolean = true) {
+    const picName = mainPic ? 'main' : 'sec';
+    return (
+      '/assets/images/' +
+      this.getFolderName(brand) +
+      '/' +
+      this.getFolderName(model) +
+      '/' +
+      picName +
+      '.jpg'
+    );
+  }
+
   getCars(): Observable<ICar[]> {
     return this._http.get<ICar[]>(this.carsUrl);
   }

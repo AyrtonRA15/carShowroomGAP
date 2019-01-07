@@ -1,5 +1,36 @@
-<div class="list-container">
-  <app-item *ngFor="let car of carList"
-            [car]="car"
-            [routerLink]="'../detail/' + car.id"></app-item>
+<div class="view-container d-flex flex-column">
+  <div class="header">
+    <div>
+      <ng-template #rt
+                   let-r="result"
+                   let-t="term">
+        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']"
+             class="mr-1"
+             style="width: 16px">
+        <ngb-highlight [result]="r.name"
+                       [term]="t"></ngb-highlight>
+      </ng-template>
+
+      <!-- <input id="typeahead-template"
+             type="text"
+             class="form-control"
+             [(ngModel)]="model"
+             [ngbTypeahead]="search"
+             [resultTemplate]="rt"
+             [inputFormatter]="formatter" /> -->
+    </div>
+    <input type="text"
+           placeholder="Search by brand name...">
+  </div>
+  <div class="d-flex flex-wrap justify-content-around list-container">
+    <app-item *ngFor="let car of carList"
+              [car]="car"></app-item>
+  </div>
+  <div class="pagination-container d-flex justify-content-center align-items-center"
+       *ngIf="carList.length">
+    <ngb-pagination class="d-flex justify-content-start"
+                    [collectionSize]="carList.length"
+                    [pageSize]="12"
+                    [(page)]="page"></ngb-pagination>
+  </div>
 </div>

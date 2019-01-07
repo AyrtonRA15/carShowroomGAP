@@ -13,3 +13,7 @@ export interface ICar {
     fuelTank: number;
   };
 }
+
+export interface IBrand {
+  name: string;
+}

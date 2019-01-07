@@ -1,0 +1,8 @@
+.header {
+  height: 80px;
+}
+
+.list-container {
+  max-height: calc(100vh - 198px);
+  overflow: auto;
+}

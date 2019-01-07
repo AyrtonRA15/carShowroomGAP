@@ -1,0 +1,77 @@
+.pictures-container {
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.close-icon {
+  padding: 16px;
+  position: absolute;
+  right: 16px;
+}
+
+.close-icon img {
+  width: 24px;
+  cursor: pointer;
+  outline: none;
+}
+
+.carousel {
+  outline: none;
+}
+
+img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-caption h3 {
+  margin: 0;
+}
+
+.carousel-caption span {
+  font-size: 20px;
+}
+
+.detail-container {
+  padding: 16px 0;
+  background-color: slategray;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.detail-titles {
+  padding: 16px 0 40px 16px;
+  width: 200px;
+  background-color: whitesmoke;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.detail-values {
+  padding: 16px 16px 40px 0;
+  min-width: 150px;
+  background-color: white;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.detail-item {
+  height: 40px;
+  border-bottom: 1px solid black;
+}
+
+.detail-titles .detail-item {
+  padding-right: 16px;
+  font-weight: bold;
+}
+
+.detail-values .detail-item {
+  padding: 0 16px;
+  color: cadetblue;
+}

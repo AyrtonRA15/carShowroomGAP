@@ -11,6 +11,8 @@ import { CarService } from 'src/app/services/car.service';
 export class DetailComponent implements OnInit {
   car: ICar;
 
+  pics: string[] = [];
+
   constructor(
     private _route: ActivatedRoute,
     private _car: CarService,
@@ -22,8 +24,19 @@ export class DetailComponent implements OnInit {
         .getCarById(params.get('carId'))
         .subscribe((car: ICar[]) => {
           console.log(car);
+          this.car = car[31];
+          this.getCarPictures();
         });
     });
+  }
+
+  getCarPictures() {
+    this.pics.push(
+      this._car.getPicURL(this.car.brand, this.car.model),
+    );
+    this.pics.push(
+      this._car.getPicURL(this.car.brand, this.car.model, false),
+    );
   }
 
   ngOnInit() {}

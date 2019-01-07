@@ -1,3 +1,46 @@
-<p>
-  detail works!
-</p>
+<div class="view-container d-flex flex-column"
+     *ngIf="car">
+  <div class="pictures-container">
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <img [src]="pics[0]"
+             [alt]="car.model + ' main picture'">
+        <div class="carousel-caption">
+          <h3>{{ car.brand }} {{ car.model }}</h3>
+          <span>{{ car.year }}</span>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <img [src]="pics[1]"
+             [alt]="car.model + ' secondary picture'">
+        <div class="carousel-caption">
+          <span>Price</span>
+          <h3>{{ car.price | currency:'USD' }}</h3>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="close-icon">
+    <img src="/assets/images/close_icon.png"
+         alt="close icon"
+         [routerLink]="'/list'">
+  </div>
+  <div class="detail-container d-flex justify-content-center">
+    <div class="detail-titles">
+      <div class="detail-item d-flex align-items-center justify-content-end">Engine</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Horsepower</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Torque</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">0-60mph / 0-100kmh</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Payload</div>
+      <div class="detail-item d-flex align-items-center justify-content-end">Fuel Tank</div>
+    </div>
+    <div class="detail-values">
+      <div class="detail-item d-flex align-items-center">{{ car.detail.engine }}</div>
+      <div class="detail-item d-flex align-items-center">{{ car.detail.horsepower }} Hp</div>
+      <div class="detail-item d-flex align-items-center">{{ car.detail.torque }} Lb-Ft.</div>
+      <div class="detail-item d-flex align-items-center">{{ car.detail.acceleration }} Seconds</div>
+      <div class="detail-item d-flex align-items-center">{{ car.detail.payload }} Lbs.</div>
+      <div class="detail-item d-flex align-items-center">{{ car.detail.fuelTank }} Gal.</div>
+    </div>
+  </div>
+</div>
